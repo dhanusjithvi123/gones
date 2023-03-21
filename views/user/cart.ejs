@@ -1,0 +1,202 @@
+<%- include('../user/layouts/user-header.ejs') %>
+
+	<% if(cartList.length> 0){%>
+
+
+
+
+
+
+
+		<section class="h-100 h-custom" style="background-color: #d2c9ff;">
+			<div class="container py-5 h-100">
+				<div class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col-12">
+						<div class="card card-registration card-registration-2" style="border-radius: 15px;">
+							<div class="card-body p-0">
+								<div class="row g-0">
+									<div class="col-lg-8">
+										<div class="p-5">
+											<div class="d-flex justify-content-between align-items-center mb-5">
+												<h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
+												<h6 class="mb-0 text-muted">
+													<%=cartList.length%>
+												</h6>
+											</div>
+
+											<% var totalAmount=0 %>
+
+												<% cartList.forEach((item)=>{%>
+													<hr class="my-4">
+
+													<div
+														class="row mb-4 d-flex justify-content-between align-items-center">
+														<div class="col-md-2 col-lg-2 col-xl-2">
+
+															<img style="height: 100px; width: 100px;"
+																src="<%= item.product.image_url[0].url%>"
+																alt="IMG-PRODUCT">
+														</div>
+														<div class="col-md-3 col-lg-3 col-xl-3">
+															<h6 class="text-muted">
+																<%=item.product.name%>
+															</h6>
+														</div>
+														<div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+															<button class="btn btn-link px-2"
+																onclick="decrementCount('<%= item.userId%>','<%= item.cartItems.productId%>','<%=item.product.Price%>')"
+																data-product-id="<%= item.product._id %>">
+																<i class="fas fa-minus"></i>
+															</button>
+
+															<p id="Quantity<%= item.cartItems.productId%>"
+																class="quantity-text d-flex justify-content-center align-items-center w-100">
+																<%= item.cartItems.qty %>
+															</p>
+
+															<button class="btn btn-link px-2"
+																onclick="incrementCount('<%= item.userId%>','<%= item.cartItems.productId%>','<%=item.product.Price%>')"
+																data-product-id="<%= item.cartItems.productId%>">
+																<i class="fas fa-plus"></i>
+															</button>
+														</div>
+														<% var price=item.cartItems.qty * item.product.Price %>
+															<% totalAmount +=price %>
+																<div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+																	<h6 id="product-price<%= item.cartItems.productId%>"
+																		class="mb-0">
+																		<%= price%>
+																	</h6>
+																</div>
+
+
+																<div class="col-md-1 col-lg-1 col-xl-1 text-end">
+																	<button
+																		onclick="deleteItem('<%= item.cartItems.productId %>','<%= price%>')"><i
+																			class="fas fa-times"></i></button>
+																</div>
+													</div>
+
+													<hr class="my-4">
+
+													<%})%>
+
+
+														<div class="pt-5">
+															<h6 class="mb-0"><a href="#!" class="text-body"><i
+																		class="fas fa-long-arrow-alt-left me-2"></i>Back
+																	to shop</a></h6>
+														</div>
+										</div>
+									</div>
+
+                                     
+									<div class="col-lg-4 bg-grey">
+										<div class="p-5">
+											<h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+											<hr class="my-4">
+
+
+											<h5 class="text-uppercase mb-3">Shipping</h5>
+
+											<h5 class="text-uppercase mb-3">Give code</h5>
+											<form action="/checkout" method="get">
+
+											<div class="mb-5">
+
+												<div class="coupon_inner">
+													<p>Enter your coupon code if you have one.</p>
+													<input class="mb-2" placeholder="Coupon code" type="text" name="couponCode"
+														id="coupon-code-input" />
+													<button class="btn btn-md btn-golden"  type="button"  onclick="applyCoupon()">
+														Apply coupon
+													</button>
+
+												</div>
+											</div>
+												<input class="mb-2" placeholder="Coupon code" type="text"
+												id="coupon-code-input" />
+												<hr class="my-4">
+												<div class="d-flex justify-content-between mb-5">
+													<h5 class="text-uppercase">sub Total</h5>
+													<h5 id="total-amount2" class="cart_amount">
+														<%= totalAmount%>
+													</h5>
+												</div>
+
+												<div class="cart_subtotal">
+													<p>discountedAmount</p>
+													<input type="text" id="discountedAmount" readonly
+														name="discountedAmount" value="0">
+												</div>
+
+												<div class="d-flex justify-content-between mb-5">
+													<h5 class="text-uppercase">Total</h5>
+													<span id="total-amount1">
+														<%= totalAmount%>
+													</span>
+												</div>
+
+												<div class="checkout_btn">
+													<input type="submit" class="btn btn-md btn-golden" value=" Proceed to
+													Checkout">
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
+
+		<!-- End Cart Table -->
+
+		<% }else { %>
+
+			<div class="container-fluid  " style="height: 75vh; margin-top: 80px;">
+				<div class="row">
+
+					<div class="col-md-12 mt-5">
+
+
+
+						<div class="card-body cart ">
+							<div class="col-sm-12 empty-cart-cls text-center mt-5">
+								<img src="https://i.imgur.com/dCdflKN.png" width="130" height="130"
+									class="img-fluid mb-4 mr-3 ">
+								<h3><strong>Your Cart is Empty</strong></h3>
+								<h4>Add something to make me happy :)</h4>
+								<a href="/shop" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue
+									shopping</a>
+
+
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+
+
+			<!-- Model -->
+
+
+			<% } %>
+
+				<script src="/public/asset/carts.js"></script>
+
+
+
+
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+				<%- include('../user/layouts/user-script.ejs') %>

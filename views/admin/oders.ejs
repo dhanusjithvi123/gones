@@ -1,0 +1,144 @@
+<%- include('../admin/layouts/admin-header.ejs') %>
+
+<main class="h-full pb-16 overflow-y-auto">
+    <div class="container px-6 mx-auto grid">
+      <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+        Odrder management
+      </h2>
+
+      <!-- General elements -->
+      
+
+    </div>
+
+    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+      <div class="w-full overflow-x-auto">
+        <table class="w-full whitespace-no-wrap">
+          <thead>
+            <tr
+              class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+              <th class="px-4 py-3">Customer name</th>
+              <th class="px-4 py-3">Order date</th>
+              <th class="px-4 py-3">Payment method</th>
+              <th class="px-4 py-3">Payment status</th>
+              <th class="px-4 py-3">Order status</th>
+              <th class="px-4 py-3">Delivery  date</th>
+              <th class="px-4 py-3">Total amount</th>
+              <th class="px-4 py-3">Order controlls</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+            
+                <tr class="text-gray-700 dark:text-gray-400">
+                  <td class="px-4 py-3">
+                    <div class="flex items-center text-sm">
+                      <div>
+                     
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-4 py-3 text-sm">
+               
+                  </td>
+                  <td class="px-4 py-3 text-sm">
+                    
+                  <td> <button type="submit"
+                      class="flex items-center justify-between  width: 200px px-2 py-1 text-xs font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                      data-bs-target="#exampleModa-<%= element._id %>">
+                      Edit
+                    </button>
+
+                    <div class="modal fade" id="exampleModa-<%= element._id %>" tabindex="-1"
+                      aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Coupon</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <form action="/admin/editCoupon/<%= element._id %>" method="post">
+                            <div class="modal-body">
+                              <div class="d-flex justify-content-between">
+
+                                <div class="d-flex flex-column">
+                                  <label>Coupencode</label>
+                                  <input
+                                    class="rounded-2flex items-center justify-between  width: 50% px-2 py-1 text-xs font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                    required value="<%= element.couponName%>" name="couponName" type="text">
+                                </div>
+
+                                <div class="d-flex flex-column">
+                                  <label>Discount in %</label>
+                                  <input
+                                    class="rounded-2 flex items-center justify-between  width: 50% px-2 py-1 text-xs font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                    name="discount" required value="<%=element.discount*100%>" type="text">
+                                </div>
+
+                              </div>
+
+                              <div class="d-flex justify-content-between">
+                                <div class="d-flex flex-column">
+                                  <label>Maximum limit</label>
+                                  <input name="maxLimit" required value="<%= element.maxLimit%>"
+                                    class="rounded-2 flex items-center justify-between  width: 50% px-2 py-1 text-xs font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                    type="text">
+                                </div>
+
+                                <div class="d-flex flex-column">
+                                  <label>Expiry date</label>
+                                  <input type="date" required
+                                    class="rounded-2  flex items-center justify-between  width: 50% px-2 py-1 text-xs font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                    style="width: 189px; height: 38px;" class="form-control border-secondary"
+                                    value="<%= element.expirationTime%>" id="exdate" name="expirationTime"
+                                    aria-describedby="emailHelp" />
+                                </div>
+                                
+
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="submit" id="submit" value="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
+                            
+
+
+                          </form> -->
+
+
+                        </div>
+                      </div>
+                    </div>
+  
+
+
+
+
+
+
+
+
+                    
+                    <!-- Button trigger modal -->
+                  
+                   
+
+
+                  </td>
+                </tr>
+                
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
+        <span class="flex items-center col-span-3">
+          Showing 21-30 of 100
+        </span>
+        <span class="col-span-2"></span>
+        <!-- Pagination -->
+
+      </div>
+    </div>
+  </main>

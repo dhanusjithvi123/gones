@@ -1,0 +1,66 @@
+<%- include('../admin/layouts/admin-header.ejs') %>
+
+
+<div class="sales table-responsive mt-5">
+
+  <table class="table table-bordered border-primary" id="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Order id</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Product</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Payment status</th>
+        <th scope="col">Orderstatus</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      <% count=1 %>
+        <% cancel.forEach(order=> { %>
+         <% order.orderItems.forEach(product=> {%>
+          <tr>
+            <th scope="row">
+              <%= count %>
+            </th>
+            <td>
+              <%= order._id %>
+            </td>
+            <td>
+              <%= order.name%>
+            </td>
+            <td>
+              <%= product.productId.productName%>
+            </td>
+            <td>
+              <%= order.totalPrice %>
+            </td>
+            <% if(order.isPaid==true){ %>
+              <td>
+                paid
+              </td>
+            <% }else{ %>
+              <td>
+                not paid
+              </td>
+            <% } %>
+            <td>
+              <%= order.orderStatus %>
+            </td>
+          </tr>
+  
+          <% }) %>
+  
+          <% count++ %>
+            <% }) %>
+  
+    </tbody>
+  
+  </table>
+  
+  </div>
+
+
+
+<script src="/public/startbootstrap-sb-admin-2-gh-pages/vendor/datatables/jquery.dataTables.min.js"></script>

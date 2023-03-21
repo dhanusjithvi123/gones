@@ -1,0 +1,230 @@
+<%- include('../admin/layouts/admin-header.ejs') %>
+ 
+
+
+<form class="row g-3" action="/admin/coupon" method="post">
+ 
+  
+ 
+  <div class="col-12">
+    <label for="inputNanme4" class="form-label" >Coupon code</label>
+    <input type="text" class="form-control" name="code" id="inputNanme4" required>
+  </div>
+
+
+  <div class="col-12">
+    <label for="inputNanme4" class="form-label" >Start Date</label>
+    <input type="date" class="form-control" name="start" id="inputNanme4" required>
+  </div>
+
+
+
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">End Date</label>
+    <input type="date" class="form-control" name="end" id="inputAddress" placeholder="" required>
+  </div>
+  
+
+  <div class="col-12">
+      <label for="inputAddress" class="form-label">Discount (%)</label>
+      <input type="text" class="form-control" name="discount" id="inputAddress" placeholder="" required>
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Minimum Purchase Amount</label>
+      <input type="text" class="form-control" name="mini" id="inputAddress" placeholder="" required>
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Maximum Purchase Amount</label>
+      <input type="text" class="form-control" name="max" id="inputAddress" placeholder="" required>
+    </div>
+
+
+  <div class="text-center ">
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+  </div>
+</form>
+
+
+
+
+
+
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+  <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+    For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official
+      DataTables documentation</a>.</p>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Coupon code</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Discount (%)</th>
+              <th>Minimum Purchase Amount</th>
+              <th>Maximum Purchase Amount</th>
+              <th>controlls</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>No</th>
+              <th>Coupon code</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Discount (%)</th>
+              <th>Minimum Purchase Amount</th>
+              <th>Maximum Purchase Amount</th>
+              <th>controlls</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <% let count=1 %>
+              <% couponData.forEach(element=> { %>
+                <tr>
+                  <td>
+                    <%=count %>
+                  </td>
+                  <td>
+                    <%=element.couponCode%>
+                  </td>
+
+                  <td>
+                    <%=element.startDate.toLocaleDateString() %>
+                  </td>
+        
+                  <td>
+                    <%=element.endDate.toLocaleDateString() %>
+                  </td>
+
+                  <td>
+                    <%=element.discount%>
+                  </td>
+
+                  <td>
+                    <%=element.minimumAmount%>
+                  </td>
+
+                  <td>
+                    <%=element.maximumAmount%>
+                  </td>
+
+
+                  <td> <button type="submit" data-toggle="modal" data-target="#exampleModa-<%=element._id%>%>">
+                      Edit
+                    </button>
+
+                    <div class="modal fade" id="exampleModa-<%= element._id %>" tabindex="-1"
+                      aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                              aria-label="Close"></button>
+                          </div>
+                          <form action="/admin/editcoupon/<%= element._id %>" method="post">
+                            <div class="modal-body">
+                              <div class="d-flex justify-content-between">
+                                <div class="d-flex flex-column">
+                                  <label>CouponCode</label>
+                                  <input name="couponCode" required value="<%=element.couponCode%>" class="rounded-2"
+                                    style="width: 189px; height: 38px;" type="text">
+                                </div>
+                                
+                                <div class="d-flex flex-column">
+                                  <label>Discount</label>
+                                  <input name="discount" required value="<%=element.discount%>" class="rounded-2"
+                                    style="width: 189px; height: 38px;" type="text">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-body">
+                              <div class="d-flex justify-content-between">
+                                <div class="d-flex flex-column">
+                                  <label> MinimumAmount</label>
+                                  <input name="minimumAmount" required value="<%=element.minimumAmount%>" class="rounded-2"
+                                    style="width: 189px; height: 38px;" type="text">
+                                </div>
+                                
+                                <div class="d-flex flex-column">
+                                  <label>MaximumAmount</label>
+                                  <input name="maximumAmount" required value="<%=element.maximumAmount%>" class="rounded-2"
+                                    style="width: 189px; height: 38px;" type="text">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="submit" id="submit" value="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                          </form>
+
+
+                        </div>
+                      </div>
+                    </div>
+      </div>
+    </div>
+    <!-- Button trigger modal -->
+    <!-- Button trigger modal -->
+    <% if(element.isBlocked===false) { %>
+      <a href="/admin/deletecoupon/<%= element._id %>">
+        <button type="button" class="btn btn-danger">Delete</button>
+      </a>
+      <% }else{ %>
+        <a href="/admin/restorecoupon/<%= element._id %>">
+          <button type="button" class="btn btn-primary">Restore</button>
+        </a>
+        <%}%>
+          <!-- Modal -->
+          <!-- Modal for delete/restore confirmation -->
+          
+
+          </td>
+          </tr>
+          <% count++ %>
+            <% }) %>
+
+
+              </tbody>
+              </table>
+  </div>
+</div>
+
+
+
+
+
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="/public/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
+  <script src="/public/startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="/public/startbootstrap-sb-admin-2-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/public/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="/public/startbootstrap-sb-admin-2-gh-pages/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="/public/startbootstrap-sb-admin-2-gh-pages/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="/public/startbootstrap-sb-admin-2-gh-pages/js/demo/datatables-demo.js"></script>

@@ -1,0 +1,58 @@
+<%- include('../admin/layouts/admin-header.ejs') %>
+
+
+    <main class="h-full pb-16 overflow-y-auto">
+        <div class="container px-6 mx-auto grid">
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                Coupen management
+            </h2>
+
+            <!-- General elements -->
+            <form action="/admin/editCoupon/<%= element._id %>" method="post">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-between">
+
+                        <div class="d-flex flex-column">
+                            <label>Coupencode</label>
+                            <input
+                                class="rounded-2flex items-center justify-between  width: 50% px-2 py-1 text-xs font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                required value="<%= element.couponName%>" name="couponName" type="text">
+                        </div>
+
+                        <div class="d-flex flex-column">
+                            <label>Discount in %</label>
+                            <input
+                                class="rounded-2 flex items-center justify-between  width: 50% px-2 py-1 text-xs font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                name="discount" required value="<%=element.discount*100%>" type="text">
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-column">
+                            <label>Maximum limit</label>
+                            <input name="maxLimit" required value="<%= element.maxLimit%>"
+                                class="rounded-2 flex items-center justify-between  width: 50% px-2 py-1 text-xs font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                type="text">
+                        </div>
+
+                        <div class="d-flex flex-column">
+                            <label>Expiry date</label>
+                            <input type="date" required
+                                class="rounded-2  flex items-center justify-between  width: 50% px-2 py-1 text-xs font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                style="width: 189px; height: 38px;" class="form-control border-secondary"
+                                value="<%= element.expirationTime%>" id="exdate" name="expirationTime"
+                                aria-describedby="emailHelp" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="submit" value="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form> -->
+
+
+        </div>
+    </main>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<%- include('../admin/layouts/admin-header.ejs') %>
+
+
+<html>
+  <head>
+    <title>Image Upload</title>
+  </head>
+  <body>
+    <h1>Image Upload</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="images" multiple>
+        <button type="submit">Upload Images</button>
+      </form>
+  
+
+    " alt="">
+    </body>
+</html>

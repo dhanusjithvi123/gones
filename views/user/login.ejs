@@ -1,0 +1,73 @@
+<%- include('../user/layouts/user-header.ejs') %>
+
+
+
+
+
+
+
+<section class="vh-100 bg-image">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                  <div class="card" style="border-radius: 15px;">
+                      <div class="card-body p-5">
+                          <h2 class="text-uppercase text-center mb-5">LOGIN</h2>
+                          <% if(locals.invalid){%>
+                            <p><%=invalid%></p>
+                            <%}%>
+
+                          <form action="/signin" class="user" method="POST" id="signup_form">
+
+                              
+
+                              <div class="form-outline mb-4">
+                                  <input type="email" name="email" id="email"
+                                      class="form-control form-control-lg" />
+                                  <label class="form-label" for="email">Your Email</label>
+                              </div>
+
+                              
+
+                              <div class="form-outline mb-4">
+                                  <input type="password" name="password" id="password"
+                                      class="form-control form-control-lg" />
+                                  <label class="form-label" for="password">password</label>
+                              </div>
+                             
+
+                              <!-- <div class="form-check d-flex justify-content-center mb-5">
+                                  <input class="form-check-input me-2" type="checkbox" value=""
+                                      id="form2Example3cg" />
+                                  <label class="form-check-label" for="form2Example3g">
+                                      I agree all statements in <a href="#!" class="text-body"><u>Terms of
+                                              service</u></a>
+                                  </label> 
+                              </div> -->
+
+                              <div class="d-flex justify-content-center">
+                                  <button type="submit"
+                                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
+                              </div>
+                              <a href="/forgot-password" class="btn btn-white btn-outline-white" style="color: blue; font-weight: bold;"> Forgot password?</a>
+                              <p class="text-center text-muted mt-5 mb-0">Don't have an account?  <a href="/signup"
+                                      class="fw-bold text-body"><u>Register</u></a></p>
+
+                          </form>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+
+
+  <%- include('../user/layouts/user-footer.ejs') %>
+
+  <%- include('../user/layouts/user-script.ejs') %>

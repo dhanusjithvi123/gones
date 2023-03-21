@@ -1,0 +1,105 @@
+<%- include('../admin/layouts/admin-header.ejs') %>
+
+
+
+
+
+ <style>
+  .card {
+     margin: 20px;
+     
+ }
+   </style>
+
+<div class="col-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">category</h4>
+      <p class="card-description">
+        Use the <code>.form-inline</code> class to display a series of labels, form controls, and buttons on a single horizontal row
+      </p>
+     <p style="color: red;"><%=errorData%></p>
+      <form action="/admin/add-categories" method="POST" class="form-inline"  >
+   
+        <div class="input-group mb-2 mr-sm-2">
+          <input type="text" name="catname" id=""
+          class="form-control block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+          placeholder="Type here"  required />  
+        
+        </div>
+        
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Add</button>
+      </form>
+    </div>
+  </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Categories Name</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Categories Name</th>
+                        <th>product</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                  <% categorydetails.forEach(function(categ,index){ %>  
+                    <tr>
+                        <td> <%= index+1 %></td>
+                        <td>  <%= categ.name %></td>
+                        <td class="px-4 py-3 text-xs">
+                            <% if(categ.iBlocked){ %>
+                                <span class="badge rounded-pill alert-danger">Blocked</span>
+                                <% } else { %>
+                                    <span class="badge rounded-pill alert-success">Active</span>
+                                    <% } %>
+                        </td>
+                        <td>
+                       
+                            
+                                <% if(categ.iBlocked===false){ %>
+                                  <a  class="btn btn-danger"href="/admin/blockCategory/<%= categ._id %>">block</a>
+                                    <% } else { %>
+                                      <a href="/admin/unblockCategory/<%= categ._id%>" class="btn btn-success">Unblock</a>
+                                        <% } %>
+                         
+                           
+
+                       
+                    </td>
+                        
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</div>
+<script src="/public/startbootstrap-sb-admin-2-gh-pages/vendor/datatables/jquery.dataTables.min.js"></script>

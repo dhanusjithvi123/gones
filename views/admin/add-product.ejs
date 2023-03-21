@@ -1,0 +1,71 @@
+<%- include('../admin/layouts/admin-header.ejs') %>
+
+
+
+
+
+
+<p style="color: red;"><%=errorData%></p>
+<form class="row g-3" action="/admin/products/add-product" method="POST" enctype="multipart/form-data">
+  <div class="col-md-6">
+    <label for="productName" class="form-label">Product Name</label>
+    <input type="text" id="productName" name="productName" placeholder="Type here" class="form-control" required minlength="2" maxlength="50">
+    <div class="invalid-feedback">
+      Please provide a valid product name.
+    </div>
+  </div>
+   
+  <div class="col-md-6">
+    <label for="productDescription" class="form-label">Full description</label>
+    <textarea id="productDescription" name="productDescription" placeholder="Type here" class="form-control" required></textarea>
+  </div>
+  <div class="col-12">
+    <label class="form-label">Regular price</label>
+    <input type="number" name="price" placeholder="" class="form-control" required>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Stock</label>
+    <input type="number" name="stock" placeholder="" class="form-control">
+  </div>
+  <div class="col-12">
+    <label for="inputNanme4" class="form-label">Select Category</label>
+    <select name="category_id" aria-placeholder="select" id="" required>
+      <option  value="" disabled selected >select</option>
+      <% if (catData.categories) { %>
+        <% for (let category of catData.categories) { %>
+          <option value="<%= category._id %>">
+            <%= category.name %>
+          </option>
+          <% } %>
+            <% } %>
+    </select>
+  </div>
+</div>
+  <div class="mb-3">
+    <input type="file" id="file" name="images" onchange="return fileValidation()" multiple> 
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Add Product</button>
+  </div>
+</form>
+
+
+<script>
+  function fileValidation() {
+    var fileInput =
+      document.getElementById('file');
+    
+    var filePath = fileInput.value;
+  
+    // Allowing file type
+    var allowedExtensions =
+        /(\.jpg|\.jpeg|\.png|)$/i;
+    
+    if (!allowedExtensions.exec(filePath)) {
+      alert('Invalid file type');
+      fileInput.value = '';
+      return false;
+    }
+  }
+</script>

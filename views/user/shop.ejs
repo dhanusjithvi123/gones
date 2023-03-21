@@ -1,0 +1,283 @@
+<%- include('../user/layouts/user-header.ejs') %>
+<form action="/shop" method="GET">
+
+<div class="flex-w flex-sb-m p-b-52">
+    <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+       <a href="/shop"><button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+          
+        </button></a> 
+
+       
+    </div>
+
+    <div class="flex-w flex-c-m m-tb-10">
+        <div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
+            <i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
+            <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+             Filter
+        </div>
+
+        <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
+            <input type="text" name="search" class="form-control"
+            placeholder="Search Products" value="<%= searchKeyword %>">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+    <input type="hidden" name="sortby" value="<%= sortby %>">
+            
+        </div>
+    </div>
+    
+    <!-- Search product -->
+  
+
+    <!-- Filter -->
+    <div class="dis-none panel-filter w-full p-t-10">
+        <div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
+            <div class="filter-col1 p-r-15 p-b-27">
+                <div class="mtext-102 cl2 p-b-15">
+                    Sort By
+
+
+                    <% let selectedCategory = req.query.category %>
+                    <ul class="list-group">
+                      <% catData.forEach(function(catdata) { %>
+                        <li class="list-group-item <%= (selectedCategory == catdata._id) ? 'active' : '' %>">
+                          <a href="/shop?category=<%= catdata._id %>">
+                            <%= catdata.name %>
+                          </a>
+                        </li>
+                      <% }); %>
+                    </ul>
+
+                </div>
+ 
+                
+            </div>
+
+            
+
+            <div class="filter-col2 p-r-15 p-b-27">
+                <div class="mtext-102 cl2 p-b-15">
+                    Price
+                </div>
+
+                <div class="sort-select-list d-flex align-items-center">
+                    <label class="mr-2">Sort By:</label>
+                    <select name="sort" id="sorting" onchange="this.form.submit()">
+                        <!-- <option value="newness" <%= sortby === "newness" ? "selected" : "" %>>Sort by newness</option> -->
+                        <option value="low-to-high" <%=sortby==="low-to-high" ? "selected" : "" %>
+                            >Sort by price: low to high</option>
+                        <option value="high-to-low" <%=sortby==="high-to-low" ? "selected" : "" %>
+                            >Sort by price: high to low</option>
+                        <option value="name-ascending" <%=sortby==="name-ascending" ? "selected"
+                            : "" %>>Product Name: A to Z</option>
+                        <option value="name-descending" <%=sortby==="name-descending" ? "selected"
+                            : "" %>>Product Name: Z to A</option>
+                    </select>
+                </div>
+            </div>
+
+            
+
+           
+        </div>
+    </div>
+</div>
+
+
+<div class="shop-sort-section">
+    <div class="container">
+        <div class="row">
+
+            <!-- Start Sort Wrapper Box -->
+            <div class="sort-box d-flex justify-content-between align-items-md-center align-items-start flex-md-row flex-column"
+            data-aos="fade-up" data-aos-delay="0">
+            <!-- Start Sort tab Button -->
+            <div class="sort-tablist d-flex align-items-center">
+                <ul class="tablist nav sort-tab-btn">
+                    <li><a class="nav-link active" data-bs-toggle="tab"
+                            href="#layout-3-grid"><img src="/public/asset/images/icons/bkg_grid.png"
+                                alt=""></a></li>
+                    <li><a class="nav-link" data-bs-toggle="tab" href="#layout-list"><img
+                                src="public/asset/images/icons/bkg_list.png" alt=""></a></li>
+                </ul>
+
+                <!-- Start Page Amount -->
+                 <!-- End Page Amount -->
+            </div> <!-- End Sort tab Button -->
+
+           
+            
+
+             <!-- Start Sort Select Option -->
+            
+
+            <!-- Start Sort Select Option -->
+           
+         <!-- End Sort Select Option -->
+
+
+
+        </div> <!-- Start Sort Wrapper Box -->
+            <!-- Start Sort Wrapper Box -->
+        </div>
+    </div>
+</div>
+
+
+    <div class="bg0 m-t-23 p-b-140">
+        <div class="container">
+
+
+            <div class="row isotope-grid">
+                <% Products.forEach((product)=>{ %>
+                    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                        <!-- Block2 -->
+                        <div class="block2">
+                            <div class="block2-pic hov-img0">
+                                <img src="<%= product.image_url[0].url%>" alt="IMG-PRODUCT">
+
+                                <a href="#" onclick="showModal('<%=product._id%>')"
+                                    class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                                    Quick View
+                                </a>
+                            </div>
+
+                            <div class="block2-txt flex-w flex-t p-t-14">
+                                <div class="block2-txt-child1 flex-col-l ">
+                                    <a href="/product-details/<%= product._id%>"
+                                        class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                        <%= product.productName %>
+                                    </a>
+
+                                    <span class="stext-105 cl3">
+                                        <%= product.mrp %>
+                                    </span>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+
+</form>
+
+                    <!-- Modal1 -->
+                    <div id="<%=product._id %>" class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+                        <div class="overlay-modal1 js-hide-modal1"></div>
+
+                        <div class="container">
+                            <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+                                <button class="how-pos3 hov3 trans-04 js-hide-modal1">
+                                    <img src="/public/images/icons/icon-close.png" alt="CLOSE">
+                                </button>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-7 p-b-30">
+                                        <div class="p-l-25 p-r-30 p-lr-0-lg">
+                                            <div class="wrap-slick3 flex-sb flex-w">
+                                                <div class="wrap-slick3-dots"></div>
+                                                <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+                                                <div class="slick3 gallery-lb">
+                                                    <% product.image_url.forEach((image)=>{ %>
+                                                        <div class="item-slick3" data-thumb="<%=image.url %>">
+                                                            <div class="wrap-pic-w pos-relative">
+                                                                <img src="<%=image.url %>" alt="IMG-PRODUCT">
+
+                                                                <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
+                                                                    href="<%=image.url %>">
+                                                                    <i class="fa fa-expand"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <% }) %>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-lg-5 p-b-30">
+                                        <div class="p-r-50 p-t-5 p-lr-0-lg">
+                                            <h4 class="mtext-105 cl2 js-name-detail p-b-14">
+                                                <%= product.productName %>
+                                            </h4>
+
+                                            <span class="mtext-106 cl2">
+                                               Price
+                                            </span>
+
+                                            <p class="stext-102 cl3 p-t-23">
+                                                <%= product.Price %>
+                                            </p>
+
+
+
+                                            <p class="stext-102 cl3 p-t-23">
+                                                <%= product.description %>
+                                            </p>
+
+                                            <!--  -->
+
+
+
+
+                                            <div class="flex-w flex-r-m p-b-10">
+                                                <div class="size-204 flex-w flex-m respon6-next">
+                                                    
+
+                                                    <button id="myButton" onclick="addToCart('<%= product._id %>')"
+                                                        class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                                        Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <!--  -->
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+
+
+
+
+            <!-- Back to top -->
+            <div class="btn-back-to-top" id="myBtn">
+                <span class="symbol-btn-back-to-top">
+                    <i class="zmdi zmdi-chevron-up"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showModal(id) {
+            document.getElementById(id).classList.add("show-modal1")
+
+            $.ajax({
+                url: "/cart/"+id,
+                 success: function (result) {
+
+
+                }
+            });
+
+        }
+    </script>
+
+
+
+
+
+    <%- include('../user/layouts/user-footer.ejs') %>
+        <%- include('../user/layouts/user-script.ejs') %>

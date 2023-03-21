@@ -1,0 +1,338 @@
+<%- include('../user/layouts/user-header.ejs') %>
+
+
+	<section class="section-slide">
+	
+		<div class="wrap-slick1">
+			
+			<div class="slick1">
+
+				<%bannerData.forEach((banner)=> { %>
+					<div class="item-slick1 bg-overlay1"
+					style="background-image: url('/public/product/<%= banner.image[0].filename %>');">
+						<div class="container h-full">
+							<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                                
+								<div class="layer-slick1 animated visible-false" data-appear="fadeInDown"
+									data-delay="0">
+									<span class="ltext-101  respon2" style="color: white;">
+										<%=banner.bannerText%>
+									</span>
+								</div>
+
+								<div class="layer-slick1 animated visible-false" data-appear="fadeInUp"
+									data-delay="800">
+									<h2 style="color: antiquewhite;" class="ltext-201 cl2 p-t-19 p-b-43 respon1">
+									
+									</h2>
+								</div>
+
+								<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
+									<a href="/shop"
+										class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+										Shop Now
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<% })%>		
+			</div>
+		</div>
+
+
+
+		<!-- banner  -->
+
+		
+		<div class="sec-banner bg0 p-t-95 p-b-55">
+			<div class="container">
+				<div class="row">
+					
+	
+	
+					<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
+						<!-- Block1 -->
+						<div class="block1 wrap-pic-w">
+							<img src="public/images/banner-07.jpg" alt="IMG-BANNER">
+	
+							<a href="/shop" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+								<div class="block1-txt-child1 flex-col-l">
+									<span class="block1-name ltext-102 trans-04 p-b-8">
+										Watches
+									</span>
+	
+									<span class="block1-info stext-102 trans-04">
+										Spring 2018
+									</span>
+								</div>
+	
+								<div class="block1-txt-child2 p-b-4 trans-05">
+									<div class="block1-link stext-101 cl0 trans-09">
+										Shop Now
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+	
+					<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
+						<!-- Block1 -->
+						<div class="block1 wrap-pic-w">
+							<img style="height: 300px;" src="/public/images/samsug.webp" alt="IMG-BANNER">
+	
+							<a href="/shop" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+								<div class="block1-txt-child1 flex-col-l">
+									<span class="block1-name ltext-102 trans-04 p-b-8">
+										Tabe
+									</span>
+	
+									<span class="block1-info stext-102 trans-04">
+										Spring 2023
+									</span>
+								</div>
+	
+								<div class="block1-txt-child2 p-b-4 trans-05">
+									<div class="block1-link stext-101 cl0 trans-09">
+										Shop Now
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					
+	
+					<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
+						<!-- Block1 -->
+						<div class="block1 wrap-pic-w">
+							<img src="/public/images/resize-accessory.jpg" alt="IMG-BANNER">
+	
+							<a href="/shop" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+								<div class="block1-txt-child1 flex-col-l">
+									<span class="block1-name ltext-102 trans-04 p-b-8">
+										Accessories
+									</span>
+	
+									<span class="block1-info stext-102 trans-04">
+										Spring 2018
+									</span>
+								</div>
+	
+								<div class="block1-txt-child2 p-b-4 trans-05">
+									<div class="block1-link stext-101 cl0 trans-09">
+										Shop Now
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="p-b-10">
+				<h3 class="ltext-103 cl5">
+					Product Overview
+				</h3>
+			</div>
+		
+		
+		<div class="shop-sort-section">
+			<div class="container">
+				<div class="row">
+		
+					<!-- Start Sort Wrapper Box -->
+					<div class="sort-box d-flex justify-content-between align-items-md-center align-items-start flex-md-row flex-column"
+					data-aos="fade-up" data-aos-delay="0">
+					<!-- Start Sort tab Button -->
+					<div class="sort-tablist d-flex align-items-center">
+						<ul class="tablist nav sort-tab-btn">
+							<li><a class="nav-link active" data-bs-toggle="tab"
+									href="#layout-3-grid"><img src="/public/asset/images/icons/bkg_grid.png"
+										alt=""></a></li>
+							<li><a class="nav-link" data-bs-toggle="tab" href="#layout-list"><img
+										src="public/asset/images/icons/bkg_list.png" alt=""></a></li>
+						</ul>
+		
+						<!-- Start Page Amount -->
+						 <!-- End Page Amount -->
+					</div> <!-- End Sort tab Button -->
+		
+				   
+					
+		
+					 <!-- Start Sort Select Option -->
+					
+		
+					<!-- Start Sort Select Option -->
+				   
+				 <!-- End Sort Select Option -->
+		
+		
+		
+				</div> <!-- Start Sort Wrapper Box -->
+					<!-- Start Sort Wrapper Box -->
+				</div>
+			</div>
+		</div>
+		
+		
+			<div class="bg0 m-t-23 p-b-140">
+				<div class="container">
+		
+		
+					<div class="row isotope-grid">
+						<% Products.forEach((product)=>{ %>
+							<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+								<!-- Block2 -->
+								<div class="block2">
+									<div class="block2-pic hov-img0">
+										<img src="<%= product.image_url[0].url%>" alt="IMG-PRODUCT">
+		
+										<a href="#" onclick="showModal('<%=product._id%>')"
+											class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+											Quick View
+										</a>
+									</div>
+		
+									<div class="block2-txt flex-w flex-t p-t-14">
+										<div class="block2-txt-child1 flex-col-l ">
+											<a href="/product-details/<%= product._id%>"
+												class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+												<%= product.productName %>
+											</a>
+		
+											<span class="stext-105 cl3">
+												<%= product.mrp %>
+											</span>
+										</div>
+		
+										
+									</div>
+								</div>
+							</div>
+		
+		</form>
+		
+							<!-- Modal1 -->
+							<div id="<%=product._id %>" class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+								<div class="overlay-modal1 js-hide-modal1"></div>
+		
+								<div class="container">
+									<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+										<button class="how-pos3 hov3 trans-04 js-hide-modal1">
+											<img src="/public/images/icons/icon-close.png" alt="CLOSE">
+										</button>
+		
+										<div class="row">
+											<div class="col-md-6 col-lg-7 p-b-30">
+												<div class="p-l-25 p-r-30 p-lr-0-lg">
+													<div class="wrap-slick3 flex-sb flex-w">
+														<div class="wrap-slick3-dots"></div>
+														<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+		
+														<div class="slick3 gallery-lb">
+															<% product.image_url.forEach((image)=>{ %>
+																<div class="item-slick3" data-thumb="<%=image.url %>">
+																	<div class="wrap-pic-w pos-relative">
+																		<img src="<%=image.url %>" alt="IMG-PRODUCT">
+		
+																		<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
+																			href="<%=image.url %>">
+																			<i class="fa fa-expand"></i>
+																		</a>
+																	</div>
+																</div>
+																<% }) %>
+		
+		
+														</div>
+													</div>
+												</div>
+											</div>
+		
+											<div class="col-md-6 col-lg-5 p-b-30">
+												<div class="p-r-50 p-t-5 p-lr-0-lg">
+													<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+														<%= product.productName %>
+													</h4>
+		
+													<span class="mtext-106 cl2">
+													   Price
+													</span>
+		
+													<p class="stext-102 cl3 p-t-23">
+														<%= product.Price %>
+													</p>
+		
+		
+		
+													<p class="stext-102 cl3 p-t-23">
+														<%= product.description %>
+													</p>
+		
+													<!--  -->
+		
+		
+		
+		
+													<div class="flex-w flex-r-m p-b-10">
+														<div class="size-204 flex-w flex-m respon6-next">
+															
+		
+															<button id="myButton" onclick="addToCart('<%= product._id %>')"
+																class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+																Add to cart
+															</button>
+														</div>
+													</div>
+		
+		
+		
+		
+													<!--  -->
+												  
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<% }) %>
+					</div>
+		
+		
+		
+		
+					<!-- Back to top -->
+					<div class="btn-back-to-top" id="myBtn">
+						<span class="symbol-btn-back-to-top">
+							<i class="zmdi zmdi-chevron-up"></i>
+						</span>
+					</div>
+				</div>
+			</div>
+			<script>
+				function showModal(id) {
+					document.getElementById(id).classList.add("show-modal1")
+		
+					$.ajax({
+						url: "/cart/"+id,
+						 success: function (result) {
+		
+		
+						}
+					});
+		
+				}
+			</script>
+		
+		</div>
+
+		<img style="height: 10%;" src="/public/images/resize-footerbanner.jpg" class="img-fluid" alt="...">
+		
+
+	<%- include('../user/layouts/user-footer.ejs') %>
+		<%- include('../user/layouts/user-script.ejs') %>

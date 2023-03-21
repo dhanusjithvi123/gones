@@ -1,0 +1,88 @@
+<%- include('../user/layouts/user-header.ejs') %>
+
+<div class="col-lg-8">
+    <div class="card">
+        <div class="card-body">
+            <form action="/postEditProfile" method="post">
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Full Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="text" id="name" class="form-control" value="<%= userData.name %> ">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="email" id="email" class="form-control" name="email" placeholder="Email" value="<%= userData.email %> ">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Phone</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="form-control" value="<%= userData.mobile %> ">
+                </div>
+            </div>
+           
+            <div class="row mb-1">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Address</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="text" value="<%= userData?.addressDetails[0]?.housename %>" class="form-control"  placeholder="Local Address" name="housename" >
+                   
+                </div>
+            </div>
+            
+            <div class="row mb-1">
+                <div class="col-sm-3 ">    
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <p class="mb-1">Area*</p>
+                    <input type="text" class="form-control" name="area" value="<%= userData?.addressDetails[0]?.area %> " 
+                    placeholder="Your area" id="area" >
+                </div>
+            </div>
+           
+            <div class="row mb-4">
+                <div class="col-sm-3 ">    
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <p class="mb-1">Landmark*</p>
+                    <input type="text" class="form-control" name="landmark" value="<%= userData?.addressDetails[0]?.landmark %> " 
+                    placeholder="Landmark" id="landmark" >
+                </div>
+            </div>
+
+            <div class="d-flex form-outline flex-fill mb-0 mt-4">
+                <input type="text" value="<%= userData?.addressDetails[0]?.district%>" placeholder="District" name="district" id="district" class="form-control" />
+                <input type="text" value="<%= userData?.addressDetails[0]?.state%>" placeholder="State" name="state" id="state" class="form-control" />
+                
+              </div>
+    
+              <div class="d-flex form-outline flex-fill mb-4 mt-4">
+                <input type="text" value="<%= userData?.addressDetails[0]?.postoffice%>" placeholder="Post office" name="postoffice" id="postoffice" class="form-control" />
+                <input type="text" value="<%= userData?.addressDetails[0]?.pin%>" placeholder="Pin code" name="pin" id="pin" class="form-control" />
+                
+              </div>
+
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="submit" class="btn btn-primary px-4" value="Save Changes">
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+
+    
+</div>
+
+<%- include('../user/layouts/user-footer.ejs') %>
+	<%- include('../user/layouts/user-script.ejs') %>
