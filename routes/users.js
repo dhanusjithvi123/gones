@@ -47,7 +47,7 @@ router.get("/getAddressDetails/:userid",isLogin,controller.fetchAddress)
 
 router.get("/success-page/:user_id",isLogin,controller.codSuccessPage)
 
-router.get("/trackoder",controller.countItem,isLogin,controller.getorder)
+router.get("/trackoder",isLogin,controller.countItem,controller.getorder)
 
 router.get("/forgot-password",controller.countItem,controller.getforgotPasswordPage)
 
@@ -90,6 +90,8 @@ router.post("/update-address/:id",isLogin,controller.updateAddressPage);
 router.post('/forgotPassword', controller.countItem,controller.postForgotPassword,controller.getOtp)
 
 router.post('/forgotpasswordotp',controller.countItem,controller.forgotverifyUser )
+
+router.post('/forgot-new-password',controller.forgotNewPassword)
 
 // put
 

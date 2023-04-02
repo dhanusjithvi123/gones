@@ -1,11 +1,28 @@
 
-function incrementCount(userId, productId, price) {
+function incrementCount(userId, productId, price ,maxQuantity) {
   const baseUrl = window.location.origin;
   let quantity = document.querySelector("#Quantity" + productId);
 
   let total = document.querySelector("#total-price" + productId);
   let product_price = document.querySelector("#product-price"+productId);
   let total_amount = document.querySelector("#total-amount");
+
+
+
+  let currentQuantity = Number(quantity.innerText);
+  if (currentQuantity >= maxQuantity) {
+    // Replace this line:
+
+    // With this line:
+    Swal.fire({
+      icon: "warning",
+      title: `Out Of Stock`,
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    return;
+  }
+
 
   fetch(baseUrl + "/increment-decrement-count/inc", {
     method: "PUT",

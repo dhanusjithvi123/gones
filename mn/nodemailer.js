@@ -8,8 +8,8 @@ const sendVerifyEmail = async (userEmail, otp) => {
         port: 465,
        
         auth: {
-            user:'unknownow41@gmail.com' ,
-            pass: 'yeacdulpkgoqsymx'
+            user:process.env.USE,
+            pass: process.env.Pass
         }
     })
    console.log(userEmail);

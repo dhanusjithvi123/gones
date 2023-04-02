@@ -7,31 +7,20 @@
                     Categories
                 </h4>
 
-                <ul>
-                    <li class="p-b-10">
+                <ul class="list-group">
+                  <% categoryData.forEach(function(catdata) { %>
+                    <li>
+                     
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Women
+                            <%= catdata.name %>
                         </a>
+                     
+                    
                     </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Men
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shoes
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Watches
-                        </a>
-                    </li>
+                  <% }); %>
                 </ul>
+
+               
             </div>
 
             <div class="col-sm-6 col-lg-3 p-b-50">
@@ -41,28 +30,24 @@
 
                 <ul>
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                        <a href="/trackoder" class="stext-107 cl7 hov-cl1 trans-04">
                             Track Order
                         </a>
                     </li>
 
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Returns
+                        <a href="/about" class="stext-107 cl7 hov-cl1 trans-04">
+                          About
                         </a>
                     </li>
 
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shipping
+                        <a href="/viewCart" class="stext-107 cl7 hov-cl1 trans-04">
+                   Cart
                         </a>
                     </li>
 
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            FAQs
-                        </a>
-                    </li>
+                 
                 </ul>
             </div>
 
@@ -72,21 +57,21 @@
                 </h4>
 
                 <p class="stext-107 cl7 size-201">
-                    Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on
+                    G-One Gadgets 
                     (+1) 96 716 6879
                 </p>
 
                 <div class="p-t-27">
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-facebook"></i>
+                    <a href="https://www.facebook.com/Meta" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <i class="fa-brands fa-facebook"></i>
                     </a>
 
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-instagram"></i>
+                    <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <i class="fa-brands fa-twitter"></i>
                     </a>
 
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-pinterest-p"></i>
+                    <a href="https://www.instagram.com/_dj_developer_/" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <i class="fa-brands fa-instagram"></i>
                     </a>
                 </div>
             </div>
@@ -113,27 +98,7 @@
         </div>
 
         <div class="p-t-40">
-            <div class="flex-c-m flex-w p-b-18">
-                <a href="#" class="m-all-1">
-                    <img src="/public/images/icons/icon-pay-01.png" alt="ICON-PAY">
-                </a>
-
-                <a href="#" class="m-all-1">
-                    <img src="/public/images/icons/icon-pay-02.png" alt="ICON-PAY">
-                </a>
-
-                <a href="#" class="m-all-1">
-                    <img src="/public/images/icons/icon-pay-03.png" alt="ICON-PAY">
-                </a>
-
-                <a href="#" class="m-all-1">
-                    <img src="/public/images/icons/icon-pay-04.png" alt="ICON-PAY">
-                </a>
-
-                <a href="#" class="m-all-1">
-                    <img src="/public/images/icons/icon-pay-05.png" alt="ICON-PAY">
-                </a>
-            </div>
+            
 
             <p class="stext-107 cl6 txt-center">
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

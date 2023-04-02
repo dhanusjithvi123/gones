@@ -79,7 +79,7 @@
                                 <div class="row gx-2">
                                     <input placeholder="$" type="number"
                                         class="form-control block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                        name=" Stock" value="<%= Product. Stock %>" required />
+                                        name="Stock" value="<%= Product. Stock %>" required />
                                 </div>
                             </div>
                         </div>
@@ -87,19 +87,21 @@
                     
     
                     <div class="px-6 my-6">
-                        <button type="submit"
-                            class="flex items-center justify-between width = 50% x-2 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                        <button style="margin-bottom: 2%;" type="submit"
+                        class="btn btn-primary">
                             Edit Product
                             <span class="ml-2" aria-hidden="true"></span>
                         </button>
                     </div>
-                </div>
-            </form>
+               
             
-
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModl">
-                Edit Images</button>
-
+            
+                <div class="px-6 my-6">
+                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModl">
+                  Edit Images</button>
+                </div>
+              </div>
+              </form>
                 <div class="modal fade " id="exampleModl" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
