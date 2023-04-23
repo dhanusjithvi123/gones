@@ -159,7 +159,7 @@ const userAddressDelete = async (req, res, next) => {
 
 const shop = async (req, res) => {
   try {
-    const perPage = 6;
+    const perPage = 12;
     const page = parseInt(req.query.page) || 1;
     const sortOption = req.query.sort || 'created_at';
     const categoryData = await CategoryModel.find({ iBlocked: false }, { name: 1 });
