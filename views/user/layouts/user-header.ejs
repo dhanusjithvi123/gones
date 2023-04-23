@@ -80,28 +80,15 @@
 					<a href="#" class="flex-c-m trans-04 p-lr-25">
 						<%= login.username %>
 					</a>
-
-					<a href="/viewProfile" class="flex-c-m trans-04 p-lr-25">
-						My Account
-					</a>
-
-					<a href="/viewCart" class="flex-c-m trans-04 p-lr-25">
-						Cart
-					</a>
-
+					
 					<a href="/logout" class="flex-c-m trans-04 p-lr-25">
 					 Logout
 					</a>
 
-					<a href="/about" class="flex-c-m trans-04 p-lr-25">
-					   About
-					   </a>
+					
                     <% } else { %>
 					<a href="/login" class="flex-c-m trans-04 p-lr-25">
 						Login
-					</a>
-					<a href="/about" class="flex-c-m trans-04 p-lr-25">
-						About
 					</a>
 					<% } %>
 				</div>
@@ -171,16 +158,12 @@
 
             <!-- Icon header -->
             <div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
-                <div class="flex-c-m h-full p-r-10">
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
-                        <i class="zmdi zmdi-search"></i>
-                    </div>
-                </div>
+               
                  
 				
                 <div class="flex-c-m h-full p-lr-10 bor5">
                     <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
-                        data-notify="2">
+                        data-notify="<%= count.cart %>">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
                 </div>
@@ -217,10 +200,23 @@
 				<li>
                     <a href="/signup">Sign</a>
                 </li>
-
-				<li>
-                    <a href="/login">Login</a>
-                </li>
+				<% if (login.userLogin) { %>
+					<a href="/logout" >
+						Logout
+					</a>
+					<% } else { %>
+						<li class="p-b-13">
+							<a href="/signup">
+								Sigin
+							</a>
+						</li>
+	
+						<li class="p-b-13">
+							<a href="/login">
+								Login
+							</a>
+						</li>
+						 <% } %>
 				
             </ul>
         </div>
@@ -396,60 +392,10 @@
 			</div>
 			
 			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="/public/images/item-cart-01.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $19.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="/public/images/item-cart-02.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $39.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="/public/images/item-cart-03.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $17.00
-							</span>
-						</div>
-					</li>
-				</ul>
+				
 				
 				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">
-						Total: $75.00
-					</div>
+					
 
 					<div class="header-cart-buttons flex-w w-full">
 						<a href="/viewCart" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
